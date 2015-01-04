@@ -12,6 +12,10 @@
 		2BC49B3B1A58D3EA003D5842 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BC49B3A1A58D3EA003D5842 /* Images.xcassets */; };
 		2BC49B3E1A58D3EA003D5842 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BC49B3C1A58D3EA003D5842 /* MainMenu.xib */; };
 		2BC49B4A1A58D3EA003D5842 /* HDMI_Volume_ControlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC49B491A58D3EA003D5842 /* HDMI_Volume_ControlTests.m */; };
+		2BC49B651A58D44C003D5842 /* SPMediaKeyTap.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC49B5D1A58D44C003D5842 /* SPMediaKeyTap.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2BC49B691A58DB5C003D5842 /* libcec.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BC49B671A58DA81003D5842 /* libcec.2.dylib */; };
+		2BC49B6F1A58DE77003D5842 /* CecManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2BC49B6E1A58DE77003D5842 /* CecManager.mm */; };
+		2BC49B701A58DE77003D5842 /* CecManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2BC49B6E1A58DE77003D5842 /* CecManager.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +39,11 @@
 		2BC49B431A58D3EA003D5842 /* HDMI Volume ControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HDMI Volume ControlTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BC49B481A58D3EA003D5842 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2BC49B491A58D3EA003D5842 /* HDMI_Volume_ControlTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HDMI_Volume_ControlTests.m; sourceTree = "<group>"; };
+		2BC49B5C1A58D44C003D5842 /* SPMediaKeyTap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMediaKeyTap.h; sourceTree = "<group>"; };
+		2BC49B5D1A58D44C003D5842 /* SPMediaKeyTap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMediaKeyTap.m; sourceTree = "<group>"; };
+		2BC49B671A58DA81003D5842 /* libcec.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcec.2.dylib; path = ../../../../../usr/local/Cellar/libcec/2.2.0/lib/libcec.2.dylib; sourceTree = "<group>"; };
+		2BC49B6D1A58DE77003D5842 /* CecManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CecManager.h; sourceTree = "<group>"; };
+		2BC49B6E1A58DE77003D5842 /* CecManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CecManager.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BC49B691A58DB5C003D5842 /* libcec.2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +68,7 @@
 		2BC49B271A58D3EA003D5842 = {
 			isa = PBXGroup;
 			children = (
+				2BC49B671A58DA81003D5842 /* libcec.2.dylib */,
 				2BC49B321A58D3EA003D5842 /* HDMI Volume Control */,
 				2BC49B461A58D3EA003D5842 /* HDMI Volume ControlTests */,
 				2BC49B311A58D3EA003D5842 /* Products */,
@@ -76,10 +87,12 @@
 		2BC49B321A58D3EA003D5842 /* HDMI Volume Control */ = {
 			isa = PBXGroup;
 			children = (
+				2BC49B531A58D44C003D5842 /* SPMediaKeyTap */,
 				2BC49B351A58D3EA003D5842 /* AppDelegate.h */,
 				2BC49B361A58D3EA003D5842 /* AppDelegate.m */,
-				2BC49B3A1A58D3EA003D5842 /* Images.xcassets */,
-				2BC49B3C1A58D3EA003D5842 /* MainMenu.xib */,
+				2BC49B6D1A58DE77003D5842 /* CecManager.h */,
+				2BC49B6E1A58DE77003D5842 /* CecManager.mm */,
+				2BC49B711A58E02B003D5842 /* GUI */,
 				2BC49B331A58D3EA003D5842 /* Supporting Files */,
 			);
 			path = "HDMI Volume Control";
@@ -109,6 +122,24 @@
 				2BC49B481A58D3EA003D5842 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2BC49B531A58D44C003D5842 /* SPMediaKeyTap */ = {
+			isa = PBXGroup;
+			children = (
+				2BC49B5C1A58D44C003D5842 /* SPMediaKeyTap.h */,
+				2BC49B5D1A58D44C003D5842 /* SPMediaKeyTap.m */,
+			);
+			path = SPMediaKeyTap;
+			sourceTree = "<group>";
+		};
+		2BC49B711A58E02B003D5842 /* GUI */ = {
+			isa = PBXGroup;
+			children = (
+				2BC49B3A1A58D3EA003D5842 /* Images.xcassets */,
+				2BC49B3C1A58D3EA003D5842 /* MainMenu.xib */,
+			);
+			name = GUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,6 +241,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BC49B651A58D44C003D5842 /* SPMediaKeyTap.m in Sources */,
+				2BC49B6F1A58DE77003D5842 /* CecManager.mm in Sources */,
 				2BC49B391A58D3EA003D5842 /* main.m in Sources */,
 				2BC49B371A58D3EA003D5842 /* AppDelegate.m in Sources */,
 			);
@@ -220,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BC49B4A1A58D3EA003D5842 /* HDMI_Volume_ControlTests.m in Sources */,
+				2BC49B701A58DE77003D5842 /* CecManager.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,8 +360,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				GCC_INPUT_FILETYPE = automatic;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"/usr/local/include/**",
+				);
 				INFOPLIST_FILE = "HDMI Volume Control/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"/usr/local/lib/**",
+					/usr/local/Cellar/libcec/2.2.0/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -337,8 +381,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				GCC_INPUT_FILETYPE = automatic;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"/usr/local/include/**",
+				);
 				INFOPLIST_FILE = "HDMI Volume Control/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"/usr/local/lib/**",
+					/usr/local/Cellar/libcec/2.2.0/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
