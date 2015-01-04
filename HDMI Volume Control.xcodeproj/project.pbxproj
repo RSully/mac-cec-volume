@@ -11,22 +11,10 @@
 		2BC49B391A58D3EA003D5842 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC49B381A58D3EA003D5842 /* main.m */; };
 		2BC49B3B1A58D3EA003D5842 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BC49B3A1A58D3EA003D5842 /* Images.xcassets */; };
 		2BC49B3E1A58D3EA003D5842 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BC49B3C1A58D3EA003D5842 /* MainMenu.xib */; };
-		2BC49B4A1A58D3EA003D5842 /* HDMI_Volume_ControlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC49B491A58D3EA003D5842 /* HDMI_Volume_ControlTests.m */; };
 		2BC49B651A58D44C003D5842 /* SPMediaKeyTap.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC49B5D1A58D44C003D5842 /* SPMediaKeyTap.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2BC49B691A58DB5C003D5842 /* libcec.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BC49B671A58DA81003D5842 /* libcec.2.dylib */; };
 		2BC49B6F1A58DE77003D5842 /* CecManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2BC49B6E1A58DE77003D5842 /* CecManager.mm */; };
-		2BC49B701A58DE77003D5842 /* CecManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2BC49B6E1A58DE77003D5842 /* CecManager.mm */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		2BC49B441A58D3EA003D5842 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2BC49B281A58D3EA003D5842 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2BC49B2F1A58D3EA003D5842;
-			remoteInfo = "HDMI Volume Control";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2BC49B301A58D3EA003D5842 /* HDMI Volume Control.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HDMI Volume Control.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -36,9 +24,6 @@
 		2BC49B381A58D3EA003D5842 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2BC49B3A1A58D3EA003D5842 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2BC49B3D1A58D3EA003D5842 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		2BC49B431A58D3EA003D5842 /* HDMI Volume ControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HDMI Volume ControlTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2BC49B481A58D3EA003D5842 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2BC49B491A58D3EA003D5842 /* HDMI_Volume_ControlTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HDMI_Volume_ControlTests.m; sourceTree = "<group>"; };
 		2BC49B5C1A58D44C003D5842 /* SPMediaKeyTap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMediaKeyTap.h; sourceTree = "<group>"; };
 		2BC49B5D1A58D44C003D5842 /* SPMediaKeyTap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMediaKeyTap.m; sourceTree = "<group>"; };
 		2BC49B671A58DA81003D5842 /* libcec.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcec.2.dylib; path = ../../../../../usr/local/Cellar/libcec/2.2.0/lib/libcec.2.dylib; sourceTree = "<group>"; };
@@ -55,13 +40,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2BC49B401A58D3EA003D5842 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -70,7 +48,6 @@
 			children = (
 				2BC49B671A58DA81003D5842 /* libcec.2.dylib */,
 				2BC49B321A58D3EA003D5842 /* HDMI Volume Control */,
-				2BC49B461A58D3EA003D5842 /* HDMI Volume ControlTests */,
 				2BC49B311A58D3EA003D5842 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -79,7 +56,6 @@
 			isa = PBXGroup;
 			children = (
 				2BC49B301A58D3EA003D5842 /* HDMI Volume Control.app */,
-				2BC49B431A58D3EA003D5842 /* HDMI Volume ControlTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -103,23 +79,6 @@
 			children = (
 				2BC49B341A58D3EA003D5842 /* Info.plist */,
 				2BC49B381A58D3EA003D5842 /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		2BC49B461A58D3EA003D5842 /* HDMI Volume ControlTests */ = {
-			isa = PBXGroup;
-			children = (
-				2BC49B491A58D3EA003D5842 /* HDMI_Volume_ControlTests.m */,
-				2BC49B471A58D3EA003D5842 /* Supporting Files */,
-			);
-			path = "HDMI Volume ControlTests";
-			sourceTree = "<group>";
-		};
-		2BC49B471A58D3EA003D5842 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				2BC49B481A58D3EA003D5842 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -162,24 +121,6 @@
 			productReference = 2BC49B301A58D3EA003D5842 /* HDMI Volume Control.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2BC49B421A58D3EA003D5842 /* HDMI Volume ControlTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2BC49B501A58D3EA003D5842 /* Build configuration list for PBXNativeTarget "HDMI Volume ControlTests" */;
-			buildPhases = (
-				2BC49B3F1A58D3EA003D5842 /* Sources */,
-				2BC49B401A58D3EA003D5842 /* Frameworks */,
-				2BC49B411A58D3EA003D5842 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2BC49B451A58D3EA003D5842 /* PBXTargetDependency */,
-			);
-			name = "HDMI Volume ControlTests";
-			productName = "HDMI Volume ControlTests";
-			productReference = 2BC49B431A58D3EA003D5842 /* HDMI Volume ControlTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -191,10 +132,6 @@
 				TargetAttributes = {
 					2BC49B2F1A58D3EA003D5842 = {
 						CreatedOnToolsVersion = 6.1.1;
-					};
-					2BC49B421A58D3EA003D5842 = {
-						CreatedOnToolsVersion = 6.1.1;
-						TestTargetID = 2BC49B2F1A58D3EA003D5842;
 					};
 				};
 			};
@@ -212,7 +149,6 @@
 			projectRoot = "";
 			targets = (
 				2BC49B2F1A58D3EA003D5842 /* HDMI Volume Control */,
-				2BC49B421A58D3EA003D5842 /* HDMI Volume ControlTests */,
 			);
 		};
 /* End PBXProject section */
@@ -224,13 +160,6 @@
 			files = (
 				2BC49B3B1A58D3EA003D5842 /* Images.xcassets in Resources */,
 				2BC49B3E1A58D3EA003D5842 /* MainMenu.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2BC49B411A58D3EA003D5842 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,24 +177,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2BC49B3F1A58D3EA003D5842 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2BC49B4A1A58D3EA003D5842 /* HDMI_Volume_ControlTests.m in Sources */,
-				2BC49B701A58DE77003D5842 /* CecManager.mm in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		2BC49B451A58D3EA003D5842 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2BC49B2F1A58D3EA003D5842 /* HDMI Volume Control */;
-			targetProxy = 2BC49B441A58D3EA003D5842 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		2BC49B3C1A58D3EA003D5842 /* MainMenu.xib */ = {
@@ -397,42 +309,6 @@
 			};
 			name = Release;
 		};
-		2BC49B511A58D3EA003D5842 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "HDMI Volume ControlTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HDMI Volume Control.app/Contents/MacOS/HDMI Volume Control";
-			};
-			name = Debug;
-		};
-		2BC49B521A58D3EA003D5842 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "HDMI Volume ControlTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HDMI Volume Control.app/Contents/MacOS/HDMI Volume Control";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -450,14 +326,6 @@
 			buildConfigurations = (
 				2BC49B4E1A58D3EA003D5842 /* Debug */,
 				2BC49B4F1A58D3EA003D5842 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		2BC49B501A58D3EA003D5842 /* Build configuration list for PBXNativeTarget "HDMI Volume ControlTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2BC49B511A58D3EA003D5842 /* Debug */,
-				2BC49B521A58D3EA003D5842 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
