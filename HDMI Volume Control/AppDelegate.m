@@ -64,6 +64,7 @@
             break;
         case NX_KEYTYPE_MUTE:
             NSLog(@"Mute");
+            [_cec toggleMute];
             break;
     }
 }

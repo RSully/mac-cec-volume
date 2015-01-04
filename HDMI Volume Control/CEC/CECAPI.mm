@@ -116,4 +116,10 @@ using namespace CEC;
     });
 }
 
+-(void)toggleMute {
+    dispatch_async(queue, ^{
+        adapter->MuteAudio();
+    });
+}
+
 @end
