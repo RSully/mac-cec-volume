@@ -10,7 +10,8 @@
 
 @interface CECAPI : NSObject
 
--(bool)initialize:(const char*)device;
+-(bool)open:(const char *)devicePath;
+-(const char *)getDefaultDevicePath;
 
 -(void)volumeUp;
 -(void)volumeDown;
