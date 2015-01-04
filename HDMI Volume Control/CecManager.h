@@ -10,4 +10,9 @@
 
 @interface CecManager : NSObject
 
+-(bool)initialize:(const char*)device;
+
+-(bool)volumeUp;
+-(bool)volumeDown;
+
 @end
