@@ -6,44 +6,53 @@
 //  Copyright (c) 2015 Pickled Code. All rights reserved.
 //
 
-#import "CecManager.h"
+#import "CECAPI.h"
 #import <cec.h>
 #import <list>
 
+#define DISPATCH_SYNC_RETURN_BOOL(queue, statement) \
+    __block bool dsrbResult;\
+    dispatch_sync(queue, ^{ dsrbResult = statement; });\
+    return dsrbResult;
+
 using namespace CEC;
 
-@implementation CecManager {
+@implementation CECAPI {
     libcec_configuration *config;
     ICECCallbacks *callbacks;
     ICECAdapter *adapter;
+
+    dispatch_queue_t queue;
 }
 
 -(instancetype)init {
     if ((self = [super init]))
     {
+        queue = dispatch_queue_create("com.pickledcode.apps.mac-cec-volume", DISPATCH_QUEUE_SERIAL);
+
         config = new libcec_configuration();
         config->Clear();
-        
+
         snprintf(config->strDeviceName, 13, "mac-cec-volume");
-        
+
         config->clientVersion = CEC_CLIENT_VERSION_CURRENT;
         config->bActivateSource = 0;
         config->deviceTypes.Add(CEC_DEVICE_TYPE_RECORDING_DEVICE);
-        
-        
+
+
         callbacks = new ICECCallbacks();
         callbacks->Clear();
-        
+
         config->callbacks = callbacks;
-        
-        
+
+
         adapter = (ICECAdapter*)CECInitialise(config);
-        
+
         if (!adapter) {
             NSLog(@"Failed to initalize libcec");
             return nil;
         }
-        
+
         adapter->InitVideoStandalone();
     }
     return self;
@@ -92,15 +101,19 @@ using namespace CEC;
     }
     
     NSLog(@"Opening %s", device);
-    
-    return adapter->Open(device);
+
+    DISPATCH_SYNC_RETURN_BOOL(queue, adapter->Open(device))
 }
 
--(bool)volumeUp {
-    return adapter->VolumeUp();
+-(void)volumeUp {
+    dispatch_async(queue, ^{
+        adapter->VolumeUp();
+    });
 }
--(bool)volumeDown {
-    return adapter->VolumeDown();
+-(void)volumeDown {
+    dispatch_async(queue, ^{
+        adapter->VolumeDown();
+    });
 }
 
 @end

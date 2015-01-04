@@ -8,24 +8,23 @@
 
 #import "AppDelegate.h"
 #import "SPMediaKeyTap.h"
-#import "CecManager.h"
+#import "CECAPI.h"
 
 @interface AppDelegate ()
 
 @property (weak) IBOutlet NSWindow *window;
 @property (strong) SPMediaKeyTap *keyTap;
-@property (strong) CecManager *cec;
+
+@property CECAPI *cec;
+
 @end
+
 
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    
-    // todo
-    _cec = [CecManager new];
-    BOOL success = [_cec initialize:NULL];
-    NSLog(@"init suc: %d", success);
-    
+    _cec = [CECAPI new];
+    [_cec initialize:NULL];
 
     _keyTap = [[SPMediaKeyTap alloc] initWithDelegate:self];
     
@@ -49,7 +48,7 @@
     int keyFlags = ([event data1] & 0x0000FFFF);
     BOOL keyIsPressed = (((keyFlags & 0xFF00) >> 8)) == 0xA;
     int keyRepeat = (keyFlags & 0x1);
-    
+
     if (!keyIsPressed) {
         return;
     }

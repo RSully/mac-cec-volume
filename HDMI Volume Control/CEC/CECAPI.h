@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CecManager : NSObject
+@interface CECAPI : NSObject
 
 -(bool)initialize:(const char*)device;
 
--(bool)volumeUp;
--(bool)volumeDown;
+-(void)volumeUp;
+-(void)volumeDown;
 
 @end
