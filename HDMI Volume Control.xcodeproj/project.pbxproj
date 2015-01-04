@@ -13,7 +13,7 @@
 		2BC49B3E1A58D3EA003D5842 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BC49B3C1A58D3EA003D5842 /* MainMenu.xib */; };
 		2BC49B651A58D44C003D5842 /* SPMediaKeyTap.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC49B5D1A58D44C003D5842 /* SPMediaKeyTap.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2BC49B6F1A58DE77003D5842 /* CecManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2BC49B6E1A58DE77003D5842 /* CecManager.mm */; };
-		2BC49B721A58E5F7003D5842 /* libcec.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BC49B671A58DA81003D5842 /* libcec.2.dylib */; };
+		2BC49B741A58E6B7003D5842 /* libcec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BC49B731A58E6B7003D5842 /* libcec.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +29,7 @@
 		2BC49B671A58DA81003D5842 /* libcec.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcec.2.dylib; path = ../../../../../usr/local/Cellar/libcec/2.2.0/lib/libcec.2.dylib; sourceTree = "<group>"; };
 		2BC49B6D1A58DE77003D5842 /* CecManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CecManager.h; sourceTree = "<group>"; };
 		2BC49B6E1A58DE77003D5842 /* CecManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CecManager.mm; sourceTree = "<group>"; };
+		2BC49B731A58E6B7003D5842 /* libcec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcec.a; path = ../../../../../usr/local/Cellar/libcec/2.2.0/lib/libcec.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,7 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BC49B721A58E5F7003D5842 /* libcec.2.dylib in Frameworks */,
+				2BC49B741A58E6B7003D5842 /* libcec.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +47,7 @@
 		2BC49B271A58D3EA003D5842 = {
 			isa = PBXGroup;
 			children = (
+				2BC49B731A58E6B7003D5842 /* libcec.a */,
 				2BC49B671A58DA81003D5842 /* libcec.2.dylib */,
 				2BC49B321A58D3EA003D5842 /* HDMI Volume Control */,
 				2BC49B311A58D3EA003D5842 /* Products */,
@@ -332,6 +334,7 @@
 				2BC49B4F1A58D3EA003D5842 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

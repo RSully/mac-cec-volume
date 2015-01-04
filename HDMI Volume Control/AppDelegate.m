@@ -14,6 +14,7 @@
 
 @property (weak) IBOutlet NSWindow *window;
 @property (strong) SPMediaKeyTap *keyTap;
+@property (strong) CecManager *cec;
 @end
 
 @implementation AppDelegate
@@ -21,7 +22,10 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     
     // todo
-    [CecManager new];
+    _cec = [CecManager new];
+    BOOL success = [_cec initialize:NULL];
+    NSLog(@"init suc: %d", success);
+    [_cec volumeUp];
     
     return;
     
