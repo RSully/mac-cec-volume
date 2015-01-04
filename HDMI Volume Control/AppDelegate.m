@@ -25,10 +25,8 @@
     _cec = [CecManager new];
     BOOL success = [_cec initialize:NULL];
     NSLog(@"init suc: %d", success);
-    [_cec volumeUp];
     
-    return;
-    
+
     _keyTap = [[SPMediaKeyTap alloc] initWithDelegate:self];
     
     if ([SPMediaKeyTap usesGlobalMediaKeyTap]) {
@@ -49,14 +47,21 @@
 
     int keyCode = (([event data1] & 0xFFFF0000) >> 16);
     int keyFlags = ([event data1] & 0x0000FFFF);
+    BOOL keyIsPressed = (((keyFlags & 0xFF00) >> 8)) == 0xA;
     int keyRepeat = (keyFlags & 0x1);
+    
+    if (!keyIsPressed) {
+        return;
+    }
     
     switch (keyCode) {
         case NX_KEYTYPE_SOUND_DOWN:
             NSLog(@"Sound down");
+            [_cec volumeDown];
             break;
         case NX_KEYTYPE_SOUND_UP:
             NSLog(@"Sound up");
+            [_cec volumeUp];
             break;
         case NX_KEYTYPE_MUTE:
             NSLog(@"Mute");
