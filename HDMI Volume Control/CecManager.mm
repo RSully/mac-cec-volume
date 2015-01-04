@@ -7,14 +7,14 @@
 //
 
 #import "CecManager.h"
-#import <libcec/cec.h>
+#import <cec.h>
 
 @implementation CecManager
 
 -(instancetype)init {
     if ((self = [super init]))
     {
-        
+        NSLog(@"test");
     }
     return self;
 }

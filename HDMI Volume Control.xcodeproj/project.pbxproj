@@ -12,8 +12,8 @@
 		2BC49B3B1A58D3EA003D5842 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BC49B3A1A58D3EA003D5842 /* Images.xcassets */; };
 		2BC49B3E1A58D3EA003D5842 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BC49B3C1A58D3EA003D5842 /* MainMenu.xib */; };
 		2BC49B651A58D44C003D5842 /* SPMediaKeyTap.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC49B5D1A58D44C003D5842 /* SPMediaKeyTap.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		2BC49B691A58DB5C003D5842 /* libcec.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BC49B671A58DA81003D5842 /* libcec.2.dylib */; };
 		2BC49B6F1A58DE77003D5842 /* CecManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2BC49B6E1A58DE77003D5842 /* CecManager.mm */; };
+		2BC49B721A58E5F7003D5842 /* libcec.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BC49B671A58DA81003D5842 /* libcec.2.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BC49B691A58DB5C003D5842 /* libcec.2.dylib in Frameworks */,
+				2BC49B721A58E5F7003D5842 /* libcec.2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,10 +225,15 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -261,9 +266,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};
@@ -276,14 +286,11 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"/usr/local/include/**",
+					/usr/local/include/libcec/,
 				);
 				INFOPLIST_FILE = "HDMI Volume Control/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"/usr/local/lib/**",
-					/usr/local/Cellar/libcec/2.2.0/lib,
-				);
+				LIBRARY_SEARCH_PATHS = /usr/local/Cellar/libcec/2.2.0/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -297,14 +304,11 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"/usr/local/include/**",
+					/usr/local/include/libcec/,
 				);
 				INFOPLIST_FILE = "HDMI Volume Control/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"/usr/local/lib/**",
-					/usr/local/Cellar/libcec/2.2.0/lib,
-				);
+				LIBRARY_SEARCH_PATHS = /usr/local/Cellar/libcec/2.2.0/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
