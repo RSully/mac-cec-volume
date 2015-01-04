@@ -13,8 +13,22 @@
 -(bool)open:(const char *)devicePath;
 -(const char *)getDefaultDevicePath;
 
--(void)volumeUp;
--(void)volumeDown;
--(void)toggleMute;
+/**
+ * Manual key down/up audio commands
+ */
+-(bool)volumeUpKeydown;
+-(bool)volumeDownKeydown;
+-(bool)audioKeyup;
+
+/**
+ * Normal audio keypresses (auto-release)
+ */
+-(bool)volumeUpKeypress;
+-(bool)volumeDownKeypress;
+
+/**
+ * Toggle mute state
+ */
+-(bool)toggleMuteKeypress;
 
 @end

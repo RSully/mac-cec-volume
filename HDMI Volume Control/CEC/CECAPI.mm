@@ -15,6 +15,8 @@
     dispatch_sync(queue, ^{ dispatchSyncReturnBoolResult = statement; });\
     return dispatchSyncReturnBoolResult;
 
+#define DEFAULT_TIMEOUT_MS 2500
+
 using namespace CEC;
 
 @interface CECAPI ()
@@ -25,11 +27,14 @@ using namespace CEC;
     libcec_configuration *config;
     ICECCallbacks *callbacks;
     ICECAdapter *adapter;
+
+    BOOL _didOpen;
 }
 
 -(instancetype)init {
     if ((self = [super init]))
     {
+        _didOpen = NO;
         _queue = dispatch_queue_create("com.pickledcode.apps.mac-cec-volume", DISPATCH_QUEUE_SERIAL);
 
         config = new libcec_configuration();
@@ -99,8 +104,17 @@ using namespace CEC;
 }
 
 -(bool)open:(const char *)devicePath {
+    if (_didOpen) {
+        NSLog(@"CEC open called, but already open");
+        return NO;
+    }
+
     NSLog(@"Opening %s", devicePath);
-    DISPATCH_SYNC_RETURN_BOOL(_queue, adapter->Open(devicePath))
+
+    dispatch_sync(_queue, ^{
+        _didOpen = adapter->Open(devicePath, DEFAULT_TIMEOUT_MS);
+    });
+    return _didOpen;
 }
 
 -(const char *)getDefaultDevicePath {
@@ -111,21 +125,29 @@ using namespace CEC;
     return NULL;
 }
 
--(void)volumeUp {
-    dispatch_async(_queue, ^{
-        adapter->VolumeUp();
-    });
+
+
+-(bool)volumeUpKeydown {
+    DISPATCH_SYNC_RETURN_BOOL(_queue, adapter->SendKeypress(CECDEVICE_AUDIOSYSTEM, CEC_USER_CONTROL_CODE_VOLUME_UP));
 }
--(void)volumeDown {
-    dispatch_async(_queue, ^{
-        adapter->VolumeDown();
-    });
+-(bool)volumeDownKeydown {
+    DISPATCH_SYNC_RETURN_BOOL(_queue, adapter->SendKeypress(CECDEVICE_AUDIOSYSTEM, CEC_USER_CONTROL_CODE_VOLUME_DOWN));
+}
+-(bool)audioKeyup {
+    DISPATCH_SYNC_RETURN_BOOL(_queue, adapter->SendKeyRelease(CECDEVICE_AUDIOSYSTEM));
 }
 
--(void)toggleMute {
-    dispatch_async(_queue, ^{
-        adapter->MuteAudio();
-    });
+
+-(bool)volumeUpKeypress {
+    DISPATCH_SYNC_RETURN_BOOL(_queue, adapter->VolumeUp());
+}
+
+-(bool)volumeDownKeypress {
+    DISPATCH_SYNC_RETURN_BOOL(_queue, adapter->VolumeDown());
+}
+
+-(bool)toggleMuteKeypress {
+    DISPATCH_SYNC_RETURN_BOOL(_queue, adapter->AudioToggleMute());
 }
 
 @end
