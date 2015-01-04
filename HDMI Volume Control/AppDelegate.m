@@ -50,6 +50,10 @@
     [_keyTap stopWatchingMediaKeys];
 }
 
+-(IBAction)debug:(id)sender {
+    [_cec debug];
+}
+
 -(void)mediaKeyTap:(SPMediaKeyTap *)keyTap receivedMediaKeyEvent:(NSEvent *)event {
     if (event.type != NSSystemDefined) {
         NSLog(@"Undefined event type");

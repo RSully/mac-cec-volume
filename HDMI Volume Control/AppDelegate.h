@@ -10,5 +10,7 @@
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
+-(IBAction)debug:(id)sender;
+
 @end
 

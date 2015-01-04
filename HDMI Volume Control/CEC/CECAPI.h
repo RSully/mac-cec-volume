@@ -10,25 +10,27 @@
 
 @interface CECAPI : NSObject
 
--(bool)open:(const char *)devicePath;
+-(BOOL)open:(const char *)devicePath;
 -(const char *)getDefaultDevicePath;
 
 /**
  * Manual key down/up audio commands
  */
--(bool)volumeUpKeydown;
--(bool)volumeDownKeydown;
--(bool)audioKeyup;
+-(BOOL)volumeUpKeydown;
+-(BOOL)volumeDownKeydown;
+-(BOOL)audioKeyup;
 
 /**
  * Normal audio keypresses (auto-release)
  */
--(bool)volumeUpKeypress;
--(bool)volumeDownKeypress;
+-(BOOL)volumeUpKeypress;
+-(BOOL)volumeDownKeypress;
 
 /**
  * Toggle mute state
  */
--(bool)toggleMuteKeypress;
+-(BOOL)toggleMuteKeypress;
+
+-(void)debug;
 
 @end

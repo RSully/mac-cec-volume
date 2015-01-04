@@ -11,7 +11,7 @@
 #import <list>
 
 #define DISPATCH_SYNC_RETURN_BOOL(queue, statement) \
-    __block bool dispatchSyncReturnBoolResult;\
+    __block BOOL dispatchSyncReturnBoolResult;\
     dispatch_sync(queue, ^{ dispatchSyncReturnBoolResult = statement; });\
     return dispatchSyncReturnBoolResult;
 
@@ -103,7 +103,7 @@ using namespace CEC;
     return adapters;
 }
 
--(bool)open:(const char *)devicePath {
+-(BOOL)open:(const char *)devicePath {
     if (_didOpen) {
         NSLog(@"CEC open called, but already open");
         return NO;
@@ -125,28 +125,59 @@ using namespace CEC;
     return NULL;
 }
 
+-(void)debug {
+    dispatch_sync(_queue, ^{
+        cec_logical_addresses devices = adapter->GetActiveDevices();
+        NSLog(@"primary device: %d", devices.primary);
+
+        for (int i = 0; i < 16; i++)
+        {
+            cec_logical_address device = (cec_logical_address)i;
+            if (!devices.IsSet(device)) {
+                continue;
+            }
+
+            NSLog(@"*** device set: %d", i);
+
+            NSLog(@"ping: %d", adapter->PingAdapter());
+            NSLog(@"device cec version: %s", adapter->ToString(adapter->GetDeviceCecVersion(device)));
+
+            cec_menu_language *language = (cec_menu_language*)malloc(sizeof(cec_menu_language));
+            adapter->GetDeviceMenuLanguage(device, language);
+            NSLog(@"device menu lang: %s", language->language);
+            free(language);
+
+            NSLog(@"device vendor id: %s", adapter->ToString((cec_vendor_id)adapter->GetDeviceVendorId(device)));
+            NSLog(@"device power status: %s", adapter->ToString(adapter->GetDevicePowerStatus(device)));
+            NSLog(@"device poll: %d", adapter->PollDevice(device));
+            NSLog(@"device is active: %d", adapter->IsActiveDevice(device));
+            NSLog(@"device osd name: %s", adapter->GetDeviceOSDName(device).name);
+            NSLog(@"device is active source: %d", adapter->IsActiveSource(device));
+        }
+    });
+}
 
 
--(bool)volumeUpKeydown {
+-(BOOL)volumeUpKeydown {
     DISPATCH_SYNC_RETURN_BOOL(_queue, adapter->SendKeypress(CECDEVICE_AUDIOSYSTEM, CEC_USER_CONTROL_CODE_VOLUME_UP));
 }
--(bool)volumeDownKeydown {
+-(BOOL)volumeDownKeydown {
     DISPATCH_SYNC_RETURN_BOOL(_queue, adapter->SendKeypress(CECDEVICE_AUDIOSYSTEM, CEC_USER_CONTROL_CODE_VOLUME_DOWN));
 }
--(bool)audioKeyup {
+-(BOOL)audioKeyup {
     DISPATCH_SYNC_RETURN_BOOL(_queue, adapter->SendKeyRelease(CECDEVICE_AUDIOSYSTEM));
 }
 
 
--(bool)volumeUpKeypress {
+-(BOOL)volumeUpKeypress {
     DISPATCH_SYNC_RETURN_BOOL(_queue, adapter->VolumeUp());
 }
 
--(bool)volumeDownKeypress {
+-(BOOL)volumeDownKeypress {
     DISPATCH_SYNC_RETURN_BOOL(_queue, adapter->VolumeDown());
 }
 
--(bool)toggleMuteKeypress {
+-(BOOL)toggleMuteKeypress {
     DISPATCH_SYNC_RETURN_BOOL(_queue, adapter->AudioToggleMute());
 }
 
