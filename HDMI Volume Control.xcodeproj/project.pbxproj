@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B7F8EDB1BDEDF1400711849 /* libcec.3.0.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B7F8EDA1BDEDF1400711849 /* libcec.3.0.1.dylib */; };
+		2B7F8EDB1BDEDF1400711849 /* libcec.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B7F8EDA1BDEDF1400711849 /* libcec.2.dylib */; };
 		2BC49B371A58D3EA003D5842 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC49B361A58D3EA003D5842 /* AppDelegate.m */; };
 		2BC49B391A58D3EA003D5842 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC49B381A58D3EA003D5842 /* main.m */; };
 		2BC49B3B1A58D3EA003D5842 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BC49B3A1A58D3EA003D5842 /* Images.xcassets */; };
@@ -17,7 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2B7F8EDA1BDEDF1400711849 /* libcec.3.0.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcec.3.0.1.dylib; path = ../../../opt/homebrew/Cellar/libcec/3.0.1/lib/libcec.3.0.1.dylib; sourceTree = "<group>"; };
+		2B7F8EDA1BDEDF1400711849 /* libcec.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcec.2.dylib; path = "../../../opt/homebrew/Cellar/libcec-2.2.0/2.2.0/lib/libcec.2.dylib"; sourceTree = "<group>"; };
 		2BC49B301A58D3EA003D5842 /* HDMI Volume Control.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HDMI Volume Control.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BC49B341A58D3EA003D5842 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2BC49B351A58D3EA003D5842 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -36,7 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B7F8EDB1BDEDF1400711849 /* libcec.3.0.1.dylib in Frameworks */,
+				2B7F8EDB1BDEDF1400711849 /* libcec.2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,7 +46,7 @@
 		2BC49B271A58D3EA003D5842 = {
 			isa = PBXGroup;
 			children = (
-				2B7F8EDA1BDEDF1400711849 /* libcec.3.0.1.dylib */,
+				2B7F8EDA1BDEDF1400711849 /* libcec.2.dylib */,
 				2BC49B321A58D3EA003D5842 /* HDMI Volume Control */,
 				2BC49B311A58D3EA003D5842 /* Products */,
 			);
@@ -234,8 +234,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "~/dev/opt/homebrew/Cellar/libcec/3.0.1/include/libcec";
-				LIBRARY_SEARCH_PATHS = "~/dev/opt/homebrew/Cellar/libcec/3.0.1/lib";
+				HEADER_SEARCH_PATHS = "~/dev/opt/homebrew/Cellar/libcec-2.2.0/2.2.0/include/libcec";
+				LIBRARY_SEARCH_PATHS = "~/dev/opt/homebrew/Cellar/libcec-2.2.0/2.2.0/lib";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -273,8 +273,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "~/dev/opt/homebrew/Cellar/libcec/3.0.1/include/libcec";
-				LIBRARY_SEARCH_PATHS = "~/dev/opt/homebrew/Cellar/libcec/3.0.1/lib";
+				HEADER_SEARCH_PATHS = "~/dev/opt/homebrew/Cellar/libcec-2.2.0/2.2.0/include/libcec";
+				LIBRARY_SEARCH_PATHS = "~/dev/opt/homebrew/Cellar/libcec-2.2.0/2.2.0/lib";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
