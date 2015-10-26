@@ -7,16 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B7F8EDB1BDEDF1400711849 /* libcec.3.0.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B7F8EDA1BDEDF1400711849 /* libcec.3.0.1.dylib */; };
 		2BC49B371A58D3EA003D5842 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC49B361A58D3EA003D5842 /* AppDelegate.m */; };
 		2BC49B391A58D3EA003D5842 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC49B381A58D3EA003D5842 /* main.m */; };
 		2BC49B3B1A58D3EA003D5842 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BC49B3A1A58D3EA003D5842 /* Images.xcassets */; };
 		2BC49B3E1A58D3EA003D5842 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BC49B3C1A58D3EA003D5842 /* MainMenu.xib */; };
 		2BC49B651A58D44C003D5842 /* SPMediaKeyTap.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC49B5D1A58D44C003D5842 /* SPMediaKeyTap.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2BC49B6F1A58DE77003D5842 /* CECAPI.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2BC49B6E1A58DE77003D5842 /* CECAPI.mm */; };
-		2BC49B741A58E6B7003D5842 /* libcec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BC49B731A58E6B7003D5842 /* libcec.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B7F8EDA1BDEDF1400711849 /* libcec.3.0.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcec.3.0.1.dylib; path = ../../../opt/homebrew/Cellar/libcec/3.0.1/lib/libcec.3.0.1.dylib; sourceTree = "<group>"; };
 		2BC49B301A58D3EA003D5842 /* HDMI Volume Control.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HDMI Volume Control.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BC49B341A58D3EA003D5842 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2BC49B351A58D3EA003D5842 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -28,7 +29,6 @@
 		2BC49B5D1A58D44C003D5842 /* SPMediaKeyTap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMediaKeyTap.m; sourceTree = "<group>"; };
 		2BC49B6D1A58DE77003D5842 /* CECAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CECAPI.h; sourceTree = "<group>"; };
 		2BC49B6E1A58DE77003D5842 /* CECAPI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CECAPI.mm; sourceTree = "<group>"; };
-		2BC49B731A58E6B7003D5842 /* libcec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcec.a; path = ../../../../../usr/local/Cellar/libcec/2.2.0/lib/libcec.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,7 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BC49B741A58E6B7003D5842 /* libcec.a in Frameworks */,
+				2B7F8EDB1BDEDF1400711849 /* libcec.3.0.1.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,7 +46,7 @@
 		2BC49B271A58D3EA003D5842 = {
 			isa = PBXGroup;
 			children = (
-				2BC49B731A58E6B7003D5842 /* libcec.a */,
+				2B7F8EDA1BDEDF1400711849 /* libcec.3.0.1.dylib */,
 				2BC49B321A58D3EA003D5842 /* HDMI Volume Control */,
 				2BC49B311A58D3EA003D5842 /* Products */,
 			);
@@ -135,7 +135,7 @@
 		2BC49B281A58D3EA003D5842 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Pickled Code";
 				TargetAttributes = {
 					2BC49B2F1A58D3EA003D5842 = {
@@ -219,6 +219,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -233,10 +234,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-				);
+				HEADER_SEARCH_PATHS = "~/dev/opt/homebrew/Cellar/libcec/3.0.1/include/libcec";
+				LIBRARY_SEARCH_PATHS = "~/dev/opt/homebrew/Cellar/libcec/3.0.1/lib";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -274,10 +273,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-				);
+				HEADER_SEARCH_PATHS = "~/dev/opt/homebrew/Cellar/libcec/3.0.1/include/libcec";
+				LIBRARY_SEARCH_PATHS = "~/dev/opt/homebrew/Cellar/libcec/3.0.1/lib";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
@@ -291,14 +288,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_INPUT_FILETYPE = automatic;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					/usr/local/include/libcec/,
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "HDMI Volume Control/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				LIBRARY_SEARCH_PATHS = /usr/local/Cellar/libcec/2.2.0/lib;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.rsullivan.apps.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -309,14 +303,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_INPUT_FILETYPE = automatic;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					/usr/local/include/libcec/,
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "HDMI Volume Control/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				LIBRARY_SEARCH_PATHS = /usr/local/Cellar/libcec/2.2.0/lib;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.rsullivan.apps.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

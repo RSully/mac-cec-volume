@@ -35,12 +35,12 @@ using namespace CEC;
     if ((self = [super init]))
     {
         _didOpen = NO;
-        _queue = dispatch_queue_create("com.pickledcode.apps.mac-cec-volume", DISPATCH_QUEUE_SERIAL);
+        _queue = dispatch_queue_create("me.rsullivan.apps.mac-cec-volume", DISPATCH_QUEUE_SERIAL);
 
         config = new libcec_configuration();
         config->Clear();
         snprintf(config->strDeviceName, 13, "mac-cec-volume");
-        config->clientVersion = CEC_CLIENT_VERSION_CURRENT;
+        config->clientVersion = LIBCEC_VERSION_CURRENT;
         config->bActivateSource = 0;
         config->deviceTypes.Add(CEC_DEVICE_TYPE_RECORDING_DEVICE);
 
@@ -79,13 +79,14 @@ using namespace CEC;
         real_count = adapter->DetectAdapters(adapterList, count);
     });
 
+    // Fetch again using correct number of adapters
     if (real_count > count) {
         count = real_count;
 
         adapterList = (cec_adapter_descriptor*)realloc(adapterList, count * sizeof(cec_adapter_descriptor));
 
         dispatch_sync(_queue, ^{
-            count = adapter->DetectAdapters(adapterList, count);
+            real_count = adapter->DetectAdapters(adapterList, count);
         });
     }
     
@@ -95,11 +96,12 @@ using namespace CEC;
         return adapters;
     }
     
-    for (int i = 0; i < count; i++) {
+    for (int i = 0; i < real_count; i++) {
+        NSLog(@"found %s", adapterList[i].strComPath);
         adapters.push_back(adapterList[i]);
     }
     free(adapterList);
-    
+
     return adapters;
 }
 
@@ -119,6 +121,7 @@ using namespace CEC;
 
 -(const char *)getDefaultDevicePath {
     std::list<cec_adapter_descriptor> adapters = [self adapters];
+
     if (adapters.size() > 0) {
         return adapters.front().strComPath;
     }
