@@ -7,7 +7,7 @@
 //
 
 #import "CECAPI.h"
-#import <cec.h>
+#import <libcec/cec.h>
 #import <list>
 
 #define DISPATCH_SYNC_RETURN_BOOL(queue, statement) \
@@ -62,7 +62,7 @@ using namespace CEC;
 }
 
 -(void)dealloc {
-    CECDestroy(adapter), adapter = NULL;
+    CECDestroy(adapter); adapter = NULL;
     delete callbacks;
     delete config;
 }
@@ -145,16 +145,14 @@ using namespace CEC;
             NSLog(@"ping: %d", adapter->PingAdapter());
             NSLog(@"device cec version: %s", adapter->ToString(adapter->GetDeviceCecVersion(device)));
 
-            cec_menu_language *language = (cec_menu_language*)malloc(sizeof(cec_menu_language));
-            adapter->GetDeviceMenuLanguage(device, language);
-            NSLog(@"device menu lang: %s", language->language);
-            free(language);
+            std::string language = adapter->GetDeviceMenuLanguage(device);
+            NSLog(@"device menu lang: %s", language.c_str());
 
             NSLog(@"device vendor id: %s", adapter->ToString((cec_vendor_id)adapter->GetDeviceVendorId(device)));
             NSLog(@"device power status: %s", adapter->ToString(adapter->GetDevicePowerStatus(device)));
             NSLog(@"device poll: %d", adapter->PollDevice(device));
             NSLog(@"device is active: %d", adapter->IsActiveDevice(device));
-            NSLog(@"device osd name: %s", adapter->GetDeviceOSDName(device).name);
+            NSLog(@"device osd name: %s", adapter->GetDeviceOSDName(device).c_str());
             NSLog(@"device is active source: %d", adapter->IsActiveSource(device));
         }
     });

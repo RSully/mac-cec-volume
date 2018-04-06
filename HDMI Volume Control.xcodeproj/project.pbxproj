@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B7F8EDB1BDEDF1400711849 /* libcec.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B7F8EDA1BDEDF1400711849 /* libcec.2.dylib */; };
+		2B8B05431C062BBA00ECB236 /* libcec.4.0.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B8B05421C062BBA00ECB236 /* libcec.4.0.2.dylib */; };
 		2BC49B371A58D3EA003D5842 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC49B361A58D3EA003D5842 /* AppDelegate.m */; };
 		2BC49B391A58D3EA003D5842 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC49B381A58D3EA003D5842 /* main.m */; };
 		2BC49B3B1A58D3EA003D5842 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BC49B3A1A58D3EA003D5842 /* Images.xcassets */; };
@@ -17,7 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2B7F8EDA1BDEDF1400711849 /* libcec.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcec.2.dylib; path = "../../../opt/homebrew/Cellar/libcec-2.2.0/2.2.0/lib/libcec.2.dylib"; sourceTree = "<group>"; };
+		2B8B05421C062BBA00ECB236 /* libcec.4.0.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcec.4.0.2.dylib; path = /Users/ryansullivan/dev/opt/homebrew/Cellar/libcec/4.0.2/lib/libcec.4.0.2.dylib; sourceTree = "<absolute>"; };
 		2BC49B301A58D3EA003D5842 /* HDMI Volume Control.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HDMI Volume Control.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BC49B341A58D3EA003D5842 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2BC49B351A58D3EA003D5842 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -36,7 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B7F8EDB1BDEDF1400711849 /* libcec.2.dylib in Frameworks */,
+				2B8B05431C062BBA00ECB236 /* libcec.4.0.2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,7 +46,7 @@
 		2BC49B271A58D3EA003D5842 = {
 			isa = PBXGroup;
 			children = (
-				2B7F8EDA1BDEDF1400711849 /* libcec.2.dylib */,
+				2B8B05421C062BBA00ECB236 /* libcec.4.0.2.dylib */,
 				2BC49B321A58D3EA003D5842 /* HDMI Volume Control */,
 				2BC49B311A58D3EA003D5842 /* Products */,
 			);
@@ -135,7 +135,7 @@
 		2BC49B281A58D3EA003D5842 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Pickled Code";
 				TargetAttributes = {
 					2BC49B2F1A58D3EA003D5842 = {
@@ -207,13 +207,21 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -222,6 +230,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -234,8 +243,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "~/dev/opt/homebrew/Cellar/libcec-2.2.0/2.2.0/include/libcec";
-				LIBRARY_SEARCH_PATHS = "~/dev/opt/homebrew/Cellar/libcec-2.2.0/2.2.0/lib";
+				HEADER_SEARCH_PATHS = "~/dev/opt/homebrew/include";
+				LIBRARY_SEARCH_PATHS = "~/dev/opt/homebrew/lib";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -252,13 +261,21 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -267,14 +284,15 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "~/dev/opt/homebrew/Cellar/libcec-2.2.0/2.2.0/include/libcec";
-				LIBRARY_SEARCH_PATHS = "~/dev/opt/homebrew/Cellar/libcec-2.2.0/2.2.0/lib";
+				HEADER_SEARCH_PATHS = "~/dev/opt/homebrew/include";
+				LIBRARY_SEARCH_PATHS = "~/dev/opt/homebrew/lib";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
