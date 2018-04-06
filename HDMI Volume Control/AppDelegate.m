@@ -16,6 +16,9 @@
 @property (strong) SPMediaKeyTap *keyTap;
 
 @property CECAPI *cec;
+@property int currentKey;
+@property NSThread *thread;
+@property NSTimer *timer;
 
 @end
 
@@ -33,6 +36,10 @@
         NSLog(@"Media key monitoring disabled");
     }
     [self watchKeys:YES];
+
+    self.currentKey = 0;
+    _thread =[[NSThread alloc] initWithTarget:self selector:@selector(runCEC) object:nil];
+    [_thread start];
 }
 
 -(void)watchKeys:(bool)watch {
@@ -71,23 +78,62 @@
 //    int keyRepeat = (keyFlags & 0x1);
 
     if (!keyIsPressed) {
-        [_cec audioKeyup];
+//        self.currentKey = 0;
+//        [_cec audioKeyup];
         return;
     }
 
     switch (keyCode) {
         case NX_KEYTYPE_SOUND_DOWN:
-            NSLog(@"Sound down");
-            [_cec volumeDownKeydown];
+            if (self.currentKey == 1) {
+                [self sendStop];
+            }
+            self.currentKey = -1;
             break;
         case NX_KEYTYPE_SOUND_UP:
-            NSLog(@"Sound up");
-            [_cec volumeUpKeydown];
+            if (self.currentKey == -1) {
+                [self sendStop];
+            }
+            self.currentKey = 1;
             break;
         case NX_KEYTYPE_MUTE:
-            NSLog(@"Mute");
+            self.currentKey = 0;
             [_cec toggleMuteKeypress];
             break;
+    }
+
+    [self resetClearTimer];
+}
+
+-(void)resetClearTimer {
+    [self.timer invalidate];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.1
+                                                  target:self
+                                                selector:@selector(sendStop)
+                                                userInfo:nil
+                                                 repeats:NO];
+}
+-(void)sendStop {
+    self.currentKey = 0;
+    [_cec audioKeyup];
+}
+
+-(void)runCEC {
+    while (1) {
+        switch (self.currentKey) {
+            case -1:
+                [self.cec volumeDownKeydown];
+                break;
+            case 1:
+                [self.cec volumeUpKeydown];
+                break;
+            case 0:
+            default:
+                break;
+        }
+
+        // 250 to 450 ms recommended
+        [NSThread sleepForTimeInterval:.300];
     }
 }
 
